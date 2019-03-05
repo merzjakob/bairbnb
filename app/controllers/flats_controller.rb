@@ -2,11 +2,11 @@ class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-     if params[:query][:city].present? && params[:query][:number_of_guests].present?
+    if params[:query][:city].present? && params[:query][:number_of_guests].present?
       @flats = Flat.where(city: params[:query][:city], number_of_guests: params[:query][:number_of_guests])
-      else
-        @flats = Flat.all
-      end
+    else
+      @flats = Flat.all
+    end
   end
 
   def show
@@ -22,7 +22,7 @@ class FlatsController < ApplicationController
     @flat = Flat.new(flat_params)
     @flat.user_id = current_user.id
     if @flat.save
-      redirect_to flat_path(@flat)
+      redirect_to dashboard_path
     else
       render :new
     end
