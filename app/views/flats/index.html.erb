@@ -1,12 +1,17 @@
 <div class="container">
 <h1>Explore the city</h1>
 <p>A selection of homes verified for quality and comfort</p>
+</div>
 
-
+<div class="container">
   <div class="row">
     <% @flats.each do |flat| %>
-      <div class="card">
-        <%= flat.title %>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="card">
+          <%= flat.title %>
+          <%= <i class="fas fa-female">flat.number_of_guests</i> %>
+          <%= <i class="fas fa-dollar-sign">flat.price_per_night</i> %>
+        </div>
       </div>
     <% end %>
   </div>
