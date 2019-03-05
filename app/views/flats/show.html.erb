@@ -1,4 +1,14 @@
 <div class="container">
   <h1><%= @flat.title %></h1>
-<%= link_to 'Back to home', root_path,class: "btn btn-primary"  %>
+  <h3><%= @flat.description %></h3>
+
+  <div class="reservation-form">
+      <%= simple_form_for [@flat, @booking] do |f| %>
+      <%= f.input :start_date, as: :date, placeholder: 'dd/mm/yyyy'%>
+      <%= f.input :end_date, as: :date, placeholder: 'dd/mm/yyyy'%>
+      <p>Price per night: <%= @flat.price_per_night %></p>
+      <%= f.submit "Make reservation", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <%= link_to 'Back to home', root_path,class: "btn btn-primary"  %>
 </div>
