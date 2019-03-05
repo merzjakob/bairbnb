@@ -1,0 +1,44 @@
+<h1>Your profile</h1>
+
+<h2>Your trips</h2>
+<!-- List of all bookings wher user_id = current user_id -->
+<div class="container">
+<%  @bookings.each do |booking| %>
+<% length_of_stay = (booking.end_date - booking.start_date).days.to_i / 86_400%>
+  <div class="booking-card">
+    <div class="booking-name">
+      <h3><%=  booking.flat.title %></h3>
+      <p><%= length_of_stay %> days</p>
+    </div>
+    <div class="booking-body">
+      <p><%=booking.flat.description %></p>
+    </div>
+    <div class="booking-status">
+      <p class="status pending"><%=booking.status%></p>
+      <p class="price"><%=booking.total_price%>€</p>
+    </div>
+  </div>
+<% end%>
+</div>
+<!-- <h2>Your guests</h2>
+List of all bookings where flat_id = current_user_id
+<h2>Your homes</h2> -->
+<!-- List of all flats where flat_id.user_id = current user_id -->
+<!--
+<div class="message">
+  <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+  <div class="message-name">
+    <h3>Gab Dehan</h3>
+    <p>10/07/17</p>
+  </div>
+  <div class="message-body">
+    <p><strong>I am not sure yet!</strong></p>
+    <p>
+      I am not sure yet! I might be in Shanghai at this moment... Can I tell you later?
+    </p>
+  </div>
+  <div class="message-status">
+    <p class="status pending">Pending</p>
+    <p class="price">€345</p>
+  </div>
+</div> -->
