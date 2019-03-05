@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @booking.flat = @flat
     @booking.user_id = current_user.id
     if @booking.save
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       render controller: 'flats', action: 'show'
     end
