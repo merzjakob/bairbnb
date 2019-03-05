@@ -12,6 +12,13 @@ class FlatsController < ApplicationController
   end
 
   def create
+    @flat = Flat.new(flat_params)
+    @flat.user_id = current_user.id
+    if @flat.save
+      redirect_to flat_path(@cocktail)
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -24,5 +31,9 @@ class FlatsController < ApplicationController
 
   def identify_flat
     @flat = Flat.find(params[:id])
+  end
+
+  def flat_params
+    params.require(:flat).permit(:title, :description, :number_of_guests, :price_per_night, :city, :address)
   end
 end
