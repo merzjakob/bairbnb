@@ -4,15 +4,7 @@
     <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png", height: 50 %>
     <% end %>
-    <div class="search-navbar">
-      <%= form_tag flats_path, method: :get do %>
-      <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find"
-      %>
-      <% end %>
-    </div>
+    <div class="search-navbar"></div>
   </div>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
