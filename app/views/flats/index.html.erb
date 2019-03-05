@@ -1,2 +1,13 @@
-<h1>Flats#index</h1>
-<p>Find me in app/views/flats/index.html.erb</p>
+<div class="container">
+<h1>Explore the city</h1>
+<p>A selection of homes verified for quality and comfort</p>
+
+
+  <div class="row">
+    <% @flats.each do |flat| %>
+      <div class="card">
+        <%= flat.title %>
+      </div>
+    <% end %>
+  </div>
+</div>
