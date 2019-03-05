@@ -1,4 +1,6 @@
 class FlatsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @flats = Flat.all
   end
@@ -15,7 +17,7 @@ class FlatsController < ApplicationController
     @flat = Flat.new(flat_params)
     @flat.user_id = current_user.id
     if @flat.save
-      redirect_to flat_path(@cocktail)
+      redirect_to flat_path(@flat)
     else
       render :new
     end
