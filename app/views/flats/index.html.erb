@@ -6,14 +6,18 @@
   <div class="container">
     <div class="row">
       <% @flats.each do |flat| %>
-      <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="col-xs-12 col-sm-4">
         <div class="card">
           <div class="card-flat" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1464890100898-a385f744067f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80)">
-            <%= flat.title %>
+            <div class="card-description">
+              <h2><%= flat.title %></h2>
+            </div>
+          </div>
+          <div class="details-flat">
             <i class="fas fa-female"> <%= flat.number_of_guests%></i>
             <i class="fas fa-dollar-sign"> <%= flat.price_per_night %></i>
-            <%= link_to 'flat', flat_path(flat.id), class: "card-link" %>
           </div>
+            <%= link_to 'flat', flat_path(flat.id), class: "card-link" %>
         </div>
       </div>
       <% end %>
