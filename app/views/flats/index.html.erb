@@ -8,7 +8,7 @@
       <% @flats.each do |flat| %>
       <div class="col-xs-12 col-sm-4">
         <div class="card">
-          <div class="card-flat" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1464890100898-a385f744067f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80)">
+          <div class="card-flat" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%flat.images %>)">
             <div class="card-description">
               <h2><%= flat.title %></h2>
             </div>
