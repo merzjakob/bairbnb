@@ -1,14 +1,13 @@
-<h1>Your profile</h1>
-
-<h2>Your trips</h2>
 <!-- List of all bookings wher user_id = current user_id -->
-<div class="container">
+<div class="container wrapper">
+<h2>Your trips</h2>
 <%  @bookings.each do |booking| %>
 <% length_of_stay = (booking.end_date - booking.start_date).days.to_i / 86_400%>
   <div class="booking-card">
     <div class="booking-name">
       <h3><%=  booking.flat.title %></h3>
-      <p><%= length_of_stay %> days</p>
+      <p>Length of stay: <%= length_of_stay %> days</p>
+      <p>(<%= booking.start_date %> - <%= booking.end_date %>)</p>
     </div>
     <div class="booking-body">
       <p><%=booking.flat.description %></p>
@@ -21,23 +20,25 @@
 <% end%>
 </div>
 
-<h2>Your guests</h2>
+<!-- <h2>Your guests</h2> -->
 
 <!-- List of all bookings where flat_id = current_user_id -->
-<h2>Your homes</h2>
-<div class="container">
+<div class="container wrapper">
+  <h2>Your homes</h2>
   <%  @flats.each do |flat| %>
   <div class="booking-card">
     <div class="booking-name">
       <h3><%= flat.title %></h3>
-      <p><%=  flat.price_per_night %></p>
+      <h3><%=  flat.price_per_night %>€</h3>
     </div>
     <div class="booking-body">
       <p><%= flat.description %></p>
     </div>
     <div class="booking-status">
-      <p><%= flat.price_per_night %></p>
-      <p><%= flat.number_of_guests %></p>
+      <p><%= flat.number_of_guests %> guests</p>
+      <%= link_to flat_path(flat), method: "delete" do %>
+      <i class="fas fa-trash-alt"></i>
+      <% end %>
     </div>
   </div>
   <% end%>
