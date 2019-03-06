@@ -1,15 +1,19 @@
 
-<h1> Pictures in flat: <%= @flat.title %></h1>
+<div class="container">
+  <h1> Add pictures for <%= @flat.title %></h1>
 <%= simple_form_for [@flat, @image] do |f|  %>
     <%= f.input :photo  %>
     <%= f.input :photo_cache, as: :hidden %>
     <%= f.submit 'Add photo'%>
 <% end %>
-<div class="container">
+<br>
   <%= link_to 'Create flat', dashboard_path, class: 'btn btn-primary' %>
 </div>
 <div class="container">
-  <%= @images.each do |i| %>
+<h2>Your pictures:</h2>
+</div>
+<div class="container">
+  <% @images.each do |i| %>
     <img src="<%= i.photo %>" alt="" height="250" width="250">
     <%= link_to 'Delete', image_path(i), method: "delete", class: 'btn btn-primary'%>
   <% end %>
