@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+
+
   def index
     # @bookings = Booking.all
     # to be changed to show all bookings for user_id and for flat_id
@@ -15,10 +17,11 @@ class BookingsController < ApplicationController
     @booking.total_price = @total_price
     @booking.flat = @flat
     @booking.user_id = current_user.id
+
     if @booking.save
       redirect_to dashboard_path
     else
-      render controller: 'flats', action: 'show'
+      render 'flats/show'
     end
   end
 
