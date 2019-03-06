@@ -37,7 +37,7 @@ class FlatsController < ApplicationController
     @flat = Flat.new(flat_params)
     @flat.user_id = current_user.id
     if @flat.save
-      redirect_to flat_path(@flat)
+      redirect_to flat_images_path(@flat)
     else
       render :new
     end

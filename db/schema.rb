@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_03_06_105946) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,6 +42,15 @@ ActiveRecord::Schema.define(version: 2019_03_06_105946) do
     t.float "latitude"
     t.float "longitude"
     t.index ["user_id"], name: "index_flats_on_user_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "url"
+    t.bigint "flat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photo"
+    t.index ["flat_id"], name: "index_images_on_flat_id"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -79,6 +89,7 @@ ActiveRecord::Schema.define(version: 2019_03_06_105946) do
   add_foreign_key "bookings", "flats"
   add_foreign_key "bookings", "users"
   add_foreign_key "flats", "users"
+  add_foreign_key "images", "flats"
   add_foreign_key "pictures", "flats"
   add_foreign_key "reviews", "bookings"
 end

@@ -1,6 +1,6 @@
 <div class="container">
-  <h1>Explore the city</h1>
-  <p>A selection of homes verified for quality and comfort</p>
+  <h1>Explore the world</h1>
+  <p>We have identified <%= @flats.count %> homes verified for quality and comfort!</p>
 </div>
 <div class="big-box">
   <div class="container">
@@ -13,9 +13,9 @@
               <h2><%= flat.title %></h2>
             </div>
           </div>
-          <div class="details-flat">
+          <div class="details-flat flex">
             <i class="fas fa-female"> <%= flat.number_of_guests%></i>
-            <i class="fas fa-dollar-sign"> <%= flat.price_per_night %></i>
+            <i class="fas fa-dollar-sign"> <%= flat.price_per_night %>/night</i>
           </div>
             <%= link_to 'flat', flat_path(flat.id), class: "card-link" %>
         </div>

@@ -1,7 +1,7 @@
 .banner {
   color: white;
   text-align: center;
-  height: 150vh;
+  height: 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   justify-content: center;
@@ -27,7 +27,7 @@
   left: 70px;
   width: 30%;
   background-color: white;
-  border-radius: 2px;
+  border-radius: 5px;
   padding: 20px;
   text-align: left;
   color: grey;
