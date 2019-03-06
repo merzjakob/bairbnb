@@ -31,7 +31,11 @@
 //   }
 // }
 
-
+.card {
+  margin-top: 10px;
+  box-shadow: 0px 10px 53px 0px rgba(0,0,0,0.27);
+  border-radius: 5px;
+}
 
 .card-flat {
   background-size: cover;
@@ -44,17 +48,27 @@
   font-size: 24px;
   font-weight: 500;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
+  // border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   // width: 180px;
   text-align: center;
-  margin: 10px 0px;
+  margin-top: 10px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.details-flat {
+  padding: 10px 10px;
+  background: #F4F4F4;
 }
 
 .card-description {
   position: absolute;
   bottom: 50px;
-  left: 10px;
+  left: 20px;
 }
 
 .card-description h2 {
