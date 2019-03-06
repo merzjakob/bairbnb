@@ -1,0 +1,36 @@
+.big-box-flat {
+  width: 100%;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 75% 25%;
+}
+
+.flat-show {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 2
+}
+
+.reservation-form {
+  grid-row: 1 / span 1;
+  grid-column: 3 / span 3
+}
+
+.flat-info {
+  margin-left:20px;
+  margin-right: 40px;
+}
+
+.reservation-info {
+  margin-right: 20px;
+  margin-top: 30px;
+}
+
+.flat-info > h3 {
+  margin-top:5px;
+
+}
+
+.flat-info h4 {
+  color: gray;
+  margin-bottom: 5px;
+}
