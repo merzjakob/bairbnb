@@ -1,26 +1,30 @@
-<div class="big-box">
+<div class="big-box-flat">
   <div class="flat-show">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6">
-        </div class="flat-info">
-        <h1><%= @flat.title %></h1>
-        <h3><%= @flat.city %></h3>
-        <h3><%= @flat.description %></h3>
-        <h3><%= @flat.number_of_guests %></h3>
-        <h3><%= @flat.price_per_night %></h3>
-        <h3><%= @flat.address %></h3>
-      </div>
+    <div class="flat-info">
+      <h1><%= @flat.title %></h1>
+      <% @flat.images.each do |i| %>
+      <img src="<%= i.photo %>", width=150px , height=150px>
+      <% end %>
+      <h3><%= @flat.city %></h3>
+      <h4>Number of guests:</h4>
+      <h3><%= @flat.number_of_guests %></h3>
+      <h4>Price per night:</h4>
+      <h3><%= @flat.price_per_night %></h3>
+      <h4>Address:</h4>
+      <h3><%= @flat.address %></h3>
+      <h4>Description:</h4>
+      <p><%= @flat.description %></p>
     </div>
   </div>
   <div class="reservation-form">
-    <%= simple_form_for [@flat, @booking] do |f| %>
-    <%= f.input :start_date, as: :date, placeholder: 'dd/mm/yyyy'%>
-    <%= f.input :end_date, as: :date, placeholder: 'dd/mm/yyyy'%>
-    <p>Price per night: <%= @flat.price_per_night %></p>
-    <%= f.submit "Make reservation", class: "btn btn-primary" %>
-    <% end %>
-    <%= link_to 'Back to home', root_path, class: "btn btn-primary"%>
+    <div class="reservation-info">
+      <%= simple_form_for [@flat, @booking] do |f| %>
+      <%= f.input :start_date, as: :date, placeholder: 'dd/mm/yyyy'%>
+      <%= f.input :end_date, as: :date, placeholder: 'dd/mm/yyyy'%>
+      <p>Price per night: <%= @flat.price_per_night %></p>
+      <%= f.submit "Make reservation", class: "btn btn-flat" %>
+      <% end %>
+    </div>
   </div>
 </div>
 <!--
