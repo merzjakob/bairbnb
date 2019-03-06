@@ -6,7 +6,7 @@
       <%= simple_form_for :query, url: flats_path, method: :get do |f| %>
         <%= f.input :city %>
         <%= f.input :start_date, as: :date, placeholder: 'dd/mm/yyyy', wrapper_html: {class: 'form-inline'} %>
-        <%= f.input :end_date, as: :date, placeholder: 'dd/mm/yyyy', wrapper_html: {class: 'form-inline'} %>`
+        <%= f.input :end_date, as: :date, placeholder: 'dd/mm/yyyy', wrapper_html: {class: 'form-inline'} %>
         <%= f.input :number_of_guests %>
         <%= f.button :submit, class: "btn btn-flat", value: 'Search' %>
       <% end %>
