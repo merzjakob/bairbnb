@@ -1,10 +1,12 @@
-<div class="header">
-  <h1>Explore the world</h1>
-  <h3>We have identified <%= @flats.count %> homes verified for quality and comfort!</h3>
-</div>
 <div class="big-box">
   <div class="container">
     <div class="row">
+      <div class="col-xs-12">
+      <div class="header">
+        <h1>Explore the world</h1>
+        <h3>We have identified <%= @flats.count %> homes verified for quality and comfort!</h3>
+      </div>
+      </div>
       <% @flats.each do |flat| %>
       <div class="col-xs-12 col-sm-4">
         <div class="card">
