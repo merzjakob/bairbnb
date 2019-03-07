@@ -22,6 +22,9 @@
       <% end %>
     </div>
     <h3 class="price"><%=booking.total_price%>€</h3>
+    <%= link_to booking_path(booking), data: {confirm: "Are you sure you want to delete your trip?"},method: "delete" do %>
+      <i class="fas fa-trash-alt"></i>
+      <% end %>
   </div>
   <% end%>
 </div>
@@ -71,7 +74,7 @@
       <i class="fas fa-edit-alt"></i>
       EDIT
       <% end %>
-      <%= link_to flat_path(flat), method: "delete" do %>
+      <%= link_to flat_path(flat), method: "delete", data: {confirm: "Are you sure you want to delete your trip?"} do %>
       <i class="fas fa-trash-alt"></i>
       <% end %>
     </div>
