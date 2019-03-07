@@ -2,12 +2,14 @@
   display: flex;
   align-items: center;
   padding: 10px;
-  border-bottom: 2px solid rgba(220,224,244,0.4);
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+  text-align: top;
 }
 
 .wrapper h2 {
   padding-bottom: 10px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
+  font-size: 20px;
 }
 
 .wrapper {
@@ -20,40 +22,35 @@
 }
 .booking-body {
   flex-grow: 1;
-}
-.booking-name {
-  padding-left: 10px;
-  min-width: 150px;
-}
-.booking-name h3 {
-  font-size: 18px;
-  margin-bottom: 0px;
-}
-.booking-name p {
-  font-size: 15px;
-  font-weight: lighter;
-  opacity: 0.8;
-  margin-top: 5px;
-}
-.booking-body {
-  padding-left: 10px;
+  padding-left: 40px;
+  color: rgba(0,0,0,0.4);
   font-size: 15px;
   color: rgba(0,0,0,0.7);
 }
-.booking-body {
-  padding-left: 20px;
-  color: rgba(0,0,0,0.4);
+.booking-name {
+  // padding-left: 10px;
+  width: 20%;
 }
+.booking-card h3{
+  font-size: 18px;
+  margin: 0px 0px;
+}
+.booking-card p {
+  font-size: 15px;
+  font-weight: lighter;
+  opacity: 0.8;
+  margin: 5px 0px;
+}
+
 .booking-body strong{
   color: rgba(0,0,0,0.9);
   color: rgba(0,0,0,0.9);
 }
-.booking-body p {
-  margin: 6px 0;
-}
+
 .booking-status {
   display: flex;
-  justify-content: space-around;
+  min-width: 150px;
+  justify-content: space-between;
   i, p {
     margin: 0px 20px;
   }
