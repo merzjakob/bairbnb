@@ -19,8 +19,8 @@
   <div class="reservation-form">
     <div class="reservation-info">
       <%= simple_form_for [@flat, @booking] do |f| %>
-      <%= f.input :start_date, as: :date, placeholder: 'dd/mm/yyyy', wrapper_html: {class: 'form-inline'} %>
-        <%= f.input :end_date, as: :date, placeholder: 'dd/mm/yyyy', wrapper_html: {class: 'form-inline'} %>
+      <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
       <p>Price per night: <%= @flat.price_per_night %></p>
       <%= f.submit "Make reservation", class: "btn btn-flat" %>
       <% end %>
