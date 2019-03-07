@@ -70,27 +70,43 @@
   margin-right: 50px;
 }
 
-.flat-info > h1 {
-  font-size:45px;
-  font-weight: bold;
 
+.owner-form {
+  vertical-align: middle;
+  position: relative;
+  p {
+    position: absolute;
+    left: 25%;
+    top: 25%;
+    margin-right: 25%;
+    margin-bottom:25%;
+    text-align: center;
+    font-style: italic;
+  }
 }
-.flat-info > h3 {
-  margin-top:0px;
 
-}
-
-.flat-info h4 {
-  color: gray;
-  margin-bottom: 12px;
+.pseudo {
+  background: white;
+  opacity: 0.1;
 }
 
 .number-guest-show-page {
   display:flex;
-  margin-bottom: 12px;
-}
+  margin: 12px 0px;
+  i {
+    padding: 0px 5px;
+    display: inline-block;
+    color:#FF5A5F;
 
-.number-guest-show-page h3 {
-  margin: 0;
+  }
+  h2 {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0px;
+    display: inline-block;
+    margin: 0px 0px;
+    color: black;
+    font-weight: 500;
+  }
 }
 
