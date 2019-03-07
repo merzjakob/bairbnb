@@ -60,8 +60,13 @@
     </div>
     <div class="booking-status">
       <h3><%= flat.price_per_night %>€</h3>
+      <%= link_to edit_flat_path(flat) do %>
+      <i class="fas fa-edit-alt"></i>
+        EDIT
+      <% end %>
+
       <%= link_to flat_path(flat), method: "delete" do %>
-      <i class="fas fa-trash-alt"></i>
+        <i class="fas fa-trash-alt"></i>
       <% end %>
     </div>
   </div>

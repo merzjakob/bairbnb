@@ -46,6 +46,7 @@ class FlatsController < ApplicationController
   def update
     identify_flat
     @flat.update(flat_params)
+    redirect_to flat_images_path(@flat)
   end
 
   def destroy
