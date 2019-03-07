@@ -1,5 +1,5 @@
   <div class="gallery">
-    <% if @flat.images[0] && @flat.images[0].url != nil %>
+    <% if @flat.images[0] %>
       <figure class="gallery__item--main">
         <img src="<%= cl_image_path @flat.images[0].photo%>" class="gallery__img" alt="Image 1">
       </figure>
@@ -11,7 +11,7 @@
 
     <% counter = 1 %>
     <% 4.times do %>
-      <% if @flat.images[counter] && @flat.images[counter].url != nil%>
+      <% if @flat.images[counter]%>
         <figure class="gallery__item--small">
           <img src="<%= cl_image_path @flat.images[counter].photo%>" class="gallery__img" alt="Image 1">
         </figure>

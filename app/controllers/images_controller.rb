@@ -12,6 +12,8 @@ class ImagesController < ApplicationController
     if @image.save
       redirect_to flat_images_path(params[:flat_id])
     else
+      @images = @flat.images.where.not(photo: nil)
+      flash[:alert] = "Please add an image"
       render :index
     end
   end
