@@ -1,12 +1,14 @@
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1528819352998-f32e4f08aaca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80');">
   <div class="banner-content">
-      <h2>Explore the world</h2>
+      <h2>
+        <span id="banner-typed-text"></span>
+      </h2>
       <p>A selection of homes verified for quality and comfort</p>
 
       <%= simple_form_for :query, url: flats_path, method: :get do |f| %>
         <%= f.input :city %>
-        <%= f.input :start_date, as: :date, placeholder: 'dd/mm/yyyy', wrapper_html: {class: 'form-inline'} %>
-        <%= f.input :end_date, as: :date, placeholder: 'dd/mm/yyyy', wrapper_html: {class: 'form-inline'} %>
+        <%= f.input :start_date, as: :date,wrapper_html: {class: 'form-inline'} %>
+        <%= f.input :end_date, as: :date,wrapper_html: {class: 'form-inline'} %>
         <%= f.input :number_of_guests %>
         <%= f.button :submit, class: "btn btn-flat", value: 'Search' %>
       <% end %>
