@@ -56,22 +56,41 @@
   grid-column: 3 / span 3
 }
 
-.flat-info {
-  margin-left:20px;
-  margin-right: 40px;
-}
-
 .reservation-info {
   margin-right: 20px;
   margin-top: 30px;
 }
 
+.flat-info {
+  margin-left:20px;
+  margin-right: 50px;
+}
+
+.flat-info > h1 {
+  font-size:45px;
+  font-weight: bold;
+
+}
 .flat-info > h3 {
-  margin-top:5px;
+  margin-top:0px;
 
 }
 
 .flat-info h4 {
   color: gray;
-  margin-bottom: 5px;
+  margin-bottom: 12px;
+}
+
+.number-guest-show-page {
+  display:flex;
+  margin-bottom: 12px;
+}
+
+.number-guest-show-page h3 {
+  margin: 0;
+}
+
+.fa-female {
+font-size:33px;
+margin-right:5px
 }
