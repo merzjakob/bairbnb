@@ -28,9 +28,6 @@
   <div class="flat-show">
     <div class="flat-info">
       <h1><%= @flat.title %></h1>
-      <% @flat.images.each do |i| %>
-      <img src="<%= i.photo %>", width=150px , height=150px>
-      <% end %>
       <h3><%= @flat.city %></h3>
       <h4>Number of guests:</h4>
       <h3><%= @flat.number_of_guests %></h3>
