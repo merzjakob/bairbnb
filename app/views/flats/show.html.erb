@@ -1,20 +1,29 @@
-<div class="big-box-flat">
-    <div class=”gallery”>
-      <% if @flat.images[0].photo? %>
-        <figure class=”gallery__item gallery__item--1">
-          <img src="<%= @flat.images[0].photo%>" class="gallery__img" alt="Image 1" onerror="this.style.display='none'">
+  <div class="gallery">
+    <% if @flat.images[0].photo? %>
+      <figure class="gallery__item--main">
+        <img src="<%= cl_image_path @flat.images[0].photo%>" class="gallery__img" alt="Image 1">
+      </figure>
+    <% else %>
+      <div class="placeholder gallery__item--main">
+        <p>+</p>
+      </div>
+    <% end %>
+
+    <% counter = 1 %>
+    <% 4.times do %>
+      <% if @flat.images[counter]%>
+        <figure class="gallery__item--small">
+          <img src="<%= cl_image_path @flat.images[counter].photo%>" class="gallery__img" alt="Image 1">
         </figure>
-        <% end %>
-    <!--   <figure class="gallery__item gallery__item--2">
-        <img src="<%= @flat.images[1].photo%>" class="gallery__img" alt="Image 2" onerror="this.style.display='none'">
-      </figure>
-      <figure class="gallery__item gallery__item--3">
-        <img src="<%= @flat.images[2].photo%>" class="gallery__img" alt="Image 3" onerror="this.style.display='none'">
-      </figure>
-      <figure class="gallery__item gallery__item--4">
-        <img src="<%= @flat.images[3].photo%>" class="gallery__img" alt="Image 4" onerror="this.style.display='none'">
-      </figure> --> -->
+      <% else %>
+        <div class="placeholder gallery__item--small">
+          <p>+</p>
+        </div>
+      <% end %>
+    <% counter += 1 %>
+  <% end %>
   </div>
+<div class="big-box-flat">
 
   <div class="flat-show">
     <div class="flat-info">
