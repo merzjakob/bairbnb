@@ -2,9 +2,11 @@ Rails.application.routes.draw do
 
   devise_for :users
   get '/dashboard', to: 'profiles#dashboard'
+  patch '/bookings/:id/approve', to: 'bookings#approve', as: :approve
+    patch '/bookings/:id/decline', to: 'bookings#decline', as: :decline
   root to: 'pages#home'
   resources :flats, only: [:index, :show, :new, :create, :destroy, :update] do
-    resources :bookings, only: [:index, :show, :new, :create]
+    resources :bookings, only: [:index, :show, :new, :create, :edit, :update]
     resources :images, only: [:index, :create]
   end
   resources :images, only: [:destroy]

@@ -25,6 +25,33 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    @flat = Flat.find(params[:flat_id])
+    @booking = Booking.find(params[:booking_id])
+  end
+
+  def update
+    # @booking = Booking.find(params[:id])
+    # @booking.update(booking_params)
+    # raise
+    # @flat = Flat.find(params[:id])
+    # @flat.? # We'll see that in a moment.
+  end
+
+  def approve
+    @booking = Booking.find(params[:id])
+    @booking.status = "Approved"
+    @booking.save
+    redirect_to dashboard_path
+  end
+
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.status = "Declined"
+    @booking.save
+    redirect_to dashboard_path
+  end
+
   private
 
   def booking_params
