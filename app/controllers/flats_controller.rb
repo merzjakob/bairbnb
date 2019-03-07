@@ -1,23 +1,21 @@
 class FlatsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :update, :edit]
   before_action :identify_flat, only: [:show, :destroy]
+
   def index
-    # else
-      # @flats = Flat.all
-    # end
     @flats = Flat.where.not(latitude: nil, longitude: nil)
     # {"utf8"=>"✓", "query"=>{"city"=>"", "start_date(1i)"=>"2019", "start_date(2i)"=>"3", "start_date(3i)"=>"7", "end_date(1i)"=>"2019", "end_date(2i)"=>"3", "end_date(3i)"=>"7", "number_of_guests"=>""}, "commit"=>"Search", "controller"=>"flats", "action"=>"index"} permitted: false>
     if params[:query][:city].present? && params[:query][:number_of_guests].present?
       @flats = @flats.where(city: params[:query][:city], number_of_guests: params[:query][:number_of_guests])
     elsif params[:query][:city].present?
-       @flats = @flats.where(city: params[:query][:city])
+      @flats = @flats.where(city: params[:query][:city])
     end
 
     @markers = @flats.map do |flat|
       {
         lng: flat.longitude,
         lat: flat.latitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { flat: flat }),
+        infoWindow: render_to_string(partial: "infowindow", locals: { flat: flat })
         # image_url: helpers.asset_url('app/assets/images/map.png')
       }
     end
@@ -41,12 +39,18 @@ class FlatsController < ApplicationController
     end
   end
 
-  def destroy
-    @flat.destroy
-    redirect_to dashboard_path
+  def edit
+    identify_flat
   end
 
   def update
+    identify_flat
+    @flat.update(flat_params)
+  end
+
+  def destroy
+    @flat.destroy
+    redirect_to dashboard_path
   end
 
   private
