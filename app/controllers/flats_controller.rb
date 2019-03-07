@@ -4,12 +4,13 @@ class FlatsController < ApplicationController
 
   def index
     @flats = Flat.where.not(latitude: nil, longitude: nil)
-
+    # {"utf8"=>"✓", "query"=>{"city"=>"", "start_date(1i)"=>"2019", "start_date(2i)"=>"3", "start_date(3i)"=>"7", "end_date(1i)"=>"2019", "end_date(2i)"=>"3", "end_date(3i)"=>"7", "number_of_guests"=>""}, "commit"=>"Search", "controller"=>"flats", "action"=>"index"} permitted: false>
     if params[:query][:city].present? && params[:query][:number_of_guests].present?
       @flats = @flats.where(city: params[:query][:city], number_of_guests: params[:query][:number_of_guests])
     elsif params[:query][:city].present?
       @flats = @flats.where(city: params[:query][:city])
     end
+
     @markers = @flats.map do |flat|
       {
         lng: flat.longitude,
