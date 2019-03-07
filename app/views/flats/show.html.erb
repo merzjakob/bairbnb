@@ -1,38 +1,37 @@
-  <div class="gallery">
-    <% if @flat.images[0] %>
-      <figure class="gallery__item--main">
-        <img src="<%= cl_image_path @flat.images[0].photo%>" class="gallery__img" alt="Image 1">
-      </figure>
-    <% else %>
-      <div class="placeholder gallery__item--main">
-        <p>+</p>
-      </div>
-    <% end %>
-
-    <% counter = 1 %>
-    <% 4.times do %>
-      <% if @flat.images[counter]%>
-        <figure class="gallery__item--small">
-          <img src="<%= cl_image_path @flat.images[counter].photo%>" class="gallery__img" alt="Image 1">
-        </figure>
-      <% else %>
-        <div class="placeholder gallery__item--small">
-          <p>+</p>
-        </div>
-      <% end %>
-    <% counter += 1 %>
-  <% end %>
+<div class="gallery">
+  <% if @flat.images[0] %>
+  <figure class="gallery__item--main">
+    <img src="<%= cl_image_path @flat.images[0].photo%>" class="gallery__img" alt="Image 1">
+  </figure>
+  <% else %>
+  <div class="placeholder gallery__item--main">
+    <p>+</p>
   </div>
+  <% end %>
+  <% counter = 1 %>
+  <% 4.times do %>
+  <% if @flat.images[counter]%>
+  <figure class="gallery__item--small">
+    <img src="<%= cl_image_path @flat.images[counter].photo%>" class="gallery__img" alt="Image 1">
+  </figure>
+  <% else %>
+  <div class="placeholder gallery__item--small">
+    <p>+</p>
+  </div>
+  <% end %>
+  <% counter += 1 %>
+  <% end %>
+</div>
 <div class="big-box-flat">
-
   <div class="flat-show">
     <div class="flat-info">
       <h1><%= @flat.title %></h1>
       <h3><%= @flat.city %></h3>
-      <h4>Number of guests:</h4>
-      <h3><%= @flat.number_of_guests %></h3>
-      <h4>Price per night:</h4>
-      <h3><%= @flat.price_per_night %></h3>
+      <h3><%= @flat.price_per_night %>€/ per night</h3>
+      <div class="number-guest-show-page">
+        <i class="fas fa-female"></i>
+        <h3><%= @flat.number_of_guests %></h3>
+      </div>
       <h4>Address:</h4>
       <h3><%= @flat.address %></h3>
       <h4>Description:</h4>
@@ -42,17 +41,16 @@
   <div class="reservation-form">
     <div class="reservation-info">
       <%= simple_form_for [@flat, @booking] do |f| %>
-        <div class="box-show">
-          <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-          <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-        </div>
+      <div class="box-show">
+        <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      </div>
       <p>Price per night: <%= @flat.price_per_night %></p>
       <%= f.submit "Make reservation", class: "btn btn-flat" %>
       <% end %>
     </div>
   </div>
 </div>
-
 <!--
 <div class="row">
   <div class="col-xs-12 col-sm-6 col-md-6">
