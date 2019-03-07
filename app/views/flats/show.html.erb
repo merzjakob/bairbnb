@@ -38,6 +38,7 @@
       <p><%= @flat.description %></p>
     </div>
   </div>
+  <% if @flat.user == !current_user %>
   <div class="reservation-form">
     <div class="reservation-info">
       <%= simple_form_for [@flat, @booking] do |f| %>
@@ -50,6 +51,8 @@
       <% end %>
     </div>
   </div>
+
+  <% end %>
 </div>
 <!--
 <div class="row">

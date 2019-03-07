@@ -8,7 +8,9 @@
       <% @flats.each do |flat| %>
       <div class="col-xs-12 col-sm-4">
         <div class="card">
-
+          <% if flat.user == current_user %>
+            <div class="corner-ribbon top-right sticky blue">Your flat</div>
+          <% end %>
           <% if flat.images[0] %>
             <div class="card-flat" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%=flat.images[0].photo%>)">
           <% else %>
@@ -34,9 +36,6 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
 </div>
-
-
-
 
 
 <!-- <div class="cards">
