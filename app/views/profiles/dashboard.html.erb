@@ -13,9 +13,15 @@
       <p><%=booking.flat.description %></p>
     </div>
     <div class="booking-status">
-      <h3 class="status pending"><%=booking.status%></h3>
-      <h3 class="price"><%=booking.total_price%>€</h3>
+      <% if booking.status == "Approved" %>
+      <h3 id="approved"><%=booking.status%></h3>
+      <% elsif booking.status =="Declined" %>
+      <h3 id="declined"><%=booking.status%></h3>
+      <% else booking.status =="pending" %>
+      <h3 id="pending"><%=booking.status%></h3>
+      <% end %>
     </div>
+    <h3 class="price"><%=booking.total_price%>€</h3>
   </div>
   <% end%>
 </div>
@@ -34,15 +40,17 @@
       <p><%=booking.flat.description %></p>
     </div>
     <div class="booking-status">
-      <h3 class="status pending"><%=booking.status %></h3>
-      <% if booking.status == "pending" %>
-
-      <%= link_to "Approve", approve_path(booking), method: :patch %>
-      <%= link_to "Decline", decline_path(booking), method: :patch %>
-
+      <% if booking.status == "Approved" %>
+      <h3 id="approved"><%=booking.status%></h3>
+      <% elsif booking.status =="Declined" %>
+      <h3 id="declined"><%=booking.status%></h3>
       <% end %>
-      <h3 class="price"><%=booking.total_price%>€</h3>
+      <% if booking.status == "pending" %>
+      <%= link_to "Approve", approve_path(booking), method: :patch, id: "approved"%>
+      <%= link_to "Decline", decline_path(booking), method: :patch, id: "declined"%>
+      <% end %>
     </div>
+    <h3 class="price"><%=booking.total_price%>€</h3>
   </div>
   <% end%>
 </div>
@@ -59,16 +67,15 @@
       <p><%= flat.description %></p>
     </div>
     <div class="booking-status">
-      <h3><%= flat.price_per_night %>€</h3>
       <%= link_to edit_flat_path(flat) do %>
       <i class="fas fa-edit-alt"></i>
-        EDIT
+      EDIT
       <% end %>
-
       <%= link_to flat_path(flat), method: "delete" do %>
-        <i class="fas fa-trash-alt"></i>
+      <i class="fas fa-trash-alt"></i>
       <% end %>
     </div>
+    <h3><%= flat.price_per_night %>€</h3>
   </div>
   <% end%>
 </div>

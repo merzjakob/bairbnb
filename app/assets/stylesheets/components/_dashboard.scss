@@ -48,7 +48,7 @@
 }
 
 .booking-status {
-  display: flex;
+  display: block;
   min-width: 150px;
   justify-content: space-between;
   i, p {
@@ -60,13 +60,13 @@
   font-size: 14px;
   font-weight: bold;
 }
-.status.accepted {
+#approved {
   color: #04A366;
 }
-.status.declined {
+#declined {
   color: red;
 }
-.status.pending {
+#pending {
   color: lightgrey;
 }
 
