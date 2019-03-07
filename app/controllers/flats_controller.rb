@@ -1,6 +1,6 @@
 class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-
+  before_action :identify_flat, only: [:show, :destroy]
   def index
     # else
       # @flats = Flat.all
@@ -25,7 +25,6 @@ class FlatsController < ApplicationController
   end
 
   def show
-    identify_flat
     @booking = Booking.new
   end
 
@@ -44,6 +43,8 @@ class FlatsController < ApplicationController
   end
 
   def destroy
+    @flat.destroy
+    redirect_to dashboard_path
   end
 
   def update

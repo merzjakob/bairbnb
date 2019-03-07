@@ -1,14 +1,21 @@
-<div class="container">
-  <h1>Explore the world</h1>
-  <p>We have identified <%= @flats.count %> homes verified for quality and comfort!</p>
-</div>
 <div class="big-box">
   <div class="container">
     <div class="row">
+      <div class="col-xs-12">
+      <div class="header">
+        <h1>Explore the world</h1>
+        <h3>We have identified <%= @flats.count %> homes verified for quality and comfort!</h3>
+      </div>
+      </div>
       <% @flats.each do |flat| %>
       <div class="col-xs-12 col-sm-4">
         <div class="card">
-          <div class="card-flat" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1541338906008-f2d4ad1b2231?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2768&q=80>
+
+          <% if flat.images.empty? %>
+          <div class="card-flat" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?house)">
+            <% else %>
+          <div class="card-flat" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%=flat.images[0].photo %>)">
+            <% end %>
             <div class="card-description">
               <h2><%= flat.title %></h2>
             </div>

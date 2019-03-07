@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
   def index
     @flat = Flat.find(params[:flat_id])
-    @images = Image.where(flat_id: params[:flat_id])
+    @images = @flat.images.where.not(photo: nil)
     @image = Image.new
   end
 
