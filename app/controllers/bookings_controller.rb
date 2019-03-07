@@ -1,12 +1,13 @@
 class BookingsController < ApplicationController
-
-
   def index
     # @bookings = Booking.all
     # to be changed to show all bookings for user_id and for flat_id
   end
 
-  def show
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to dashboard_path
   end
 
   def create
