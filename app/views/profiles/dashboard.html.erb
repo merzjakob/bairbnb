@@ -22,7 +22,7 @@
 <!-- <h2>Your guests</h2> -->
 <div class="container wrapper">
   <h2>Your guests</h2>
-  <%  @bookings.each do |booking| %>
+  <%  @host.each do |booking| %>
   <% length_of_stay = (booking.end_date - booking.start_date).days.to_i / 86_400%>
   <div class="booking-card">
     <div class="booking-name">
