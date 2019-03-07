@@ -1,5 +1,5 @@
   <div class="gallery">
-    <% if @flat.images[0].photo? %>
+    <% if @flat.images[0] %>
       <figure class="gallery__item--main">
         <img src="<%= cl_image_path @flat.images[0].photo%>" class="gallery__img" alt="Image 1">
       </figure>
