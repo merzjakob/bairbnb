@@ -11,3 +11,20 @@
   color: white;
 }
 
+.box {
+  display: flex;
+  justify-content: space-around;
+}
+
+.reservation-form {
+  display: flex;
+}
+
+.box-show {
+  display: flex;
+  justify-content: space-between;
+}
+
+.booking_start_date {
+  padding-right: 10px;
+}
