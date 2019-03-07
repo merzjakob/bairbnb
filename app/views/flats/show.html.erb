@@ -1,5 +1,5 @@
   <div class="gallery">
-    <% if @flat.images[0] %>
+    <% if @flat.images[0] && @flat.images[0].url != nil %>
       <figure class="gallery__item--main">
         <img src="<%= cl_image_path @flat.images[0].photo%>" class="gallery__img" alt="Image 1">
       </figure>
@@ -11,7 +11,7 @@
 
     <% counter = 1 %>
     <% 4.times do %>
-      <% if @flat.images[counter]%>
+      <% if @flat.images[counter] && @flat.images[counter].url != nil%>
         <figure class="gallery__item--small">
           <img src="<%= cl_image_path @flat.images[counter].photo%>" class="gallery__img" alt="Image 1">
         </figure>
@@ -28,9 +28,6 @@
   <div class="flat-show">
     <div class="flat-info">
       <h1><%= @flat.title %></h1>
-      <% @flat.images.each do |i| %>
-      <img src="<%= i.photo %>", width=150px , height=150px>
-      <% end %>
       <h3><%= @flat.city %></h3>
       <h4>Number of guests:</h4>
       <h3><%= @flat.number_of_guests %></h3>
