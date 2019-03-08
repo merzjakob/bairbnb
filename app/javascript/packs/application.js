@@ -11,3 +11,6 @@ import { loadDynamicBannerText } from '../components/banner';
 loadDynamicBannerText();
 
 import "../plugins/flatpickr"
+
+import { calculateTotalPrice, insertTotalPrice } from '../components/bookingprice';
+calculateTotalPrice();
