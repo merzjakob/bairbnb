@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     resources :images, only: [:index, :create]
   end
   resources :images, only: [:destroy]
-  resources :bookings, only: [:destroy]
+
+  resources :bookings, only: [:destroy] do
+    resources :reviews, only: [:new, :create]
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

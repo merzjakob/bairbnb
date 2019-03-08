@@ -2,6 +2,7 @@ class Booking < ApplicationRecord
   # before_create :check_date_order
   belongs_to :user
   belongs_to :flat
+  has_many :reviews
   # before_save :calculate_total_price
 
   # def calculate_total_price

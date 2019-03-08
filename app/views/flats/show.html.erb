@@ -1,29 +1,29 @@
 <div class="gallery">
   <% if @flat.images[0] %>
-    <figure class="gallery__item--main">
-      <img src="<%= cl_image_path @flat.images[0].photo%>" class="gallery__img" alt="Image 1">
+  <figure class="gallery__item--main">
+    <img src="<%= cl_image_path @flat.images[0].photo%>" class="gallery__img" alt="Image 1">
     <%= link_to 'flat_images', flat_images_path(@flat.id), class: "placeholder-link" %>
-    </figure>
+  </figure>
   <% else %>
-    <div class="placeholder gallery__item--main">
-      <p>+</p>
-  <%= link_to 'flat_images', flat_images_path(@flat.id), class: "placeholder-link" %>
-    </div>
+  <div class="placeholder gallery__item--main">
+    <p>+</p>
+    <%= link_to 'flat_images', flat_images_path(@flat.id), class: "placeholder-link" %>
+  </div>
   <% end %>
   <% counter = 1 %>
   <% 4.times do %>
-    <% if @flat.images[counter]%>
-      <figure class="gallery__item--small">
-        <img src="<%= cl_image_path @flat.images[counter].photo%>" class="gallery__img" alt="Image 1">
-      <%= link_to 'flat_images', flat_images_path(@flat.id), class: "placeholder-link" %>
-      </figure>
-    <% else %>
-      <div class="placeholder gallery__item--small">
-        <p>+</p>
-        <%= link_to 'flat_images', flat_images_path(@flat.id), class: "placeholder-link" %>
-      </div>
-    <% end %>
-    <% counter += 1 %>
+  <% if @flat.images[counter]%>
+  <figure class="gallery__item--small">
+    <img src="<%= cl_image_path @flat.images[counter].photo%>" class="gallery__img" alt="Image 1">
+    <%= link_to 'flat_images', flat_images_path(@flat.id), class: "placeholder-link" %>
+  </figure>
+  <% else %>
+  <div class="placeholder gallery__item--small">
+    <p>+</p>
+    <%= link_to 'flat_images', flat_images_path(@flat.id), class: "placeholder-link" %>
+  </div>
+  <% end %>
+  <% counter += 1 %>
   <% end %>
 </div>
 <div class="big-box-flat">
@@ -35,19 +35,19 @@
       </div>
       <div class="number-guest-show-page">
         <i class="fas fa-female"> <h2><%= @flat.number_of_guests%></h2></i>
-            <i class="fas fa-dollar-sign"> <h2><%= @flat.price_per_night %></h2></i>
+        <i class="fas fa-dollar-sign"> <h2><%= @flat.price_per_night %></h2></i>
       </div>
       <div class="header">
         <h1>Description:</h1>
         <h3>What the owner says about this property</h3>
       </div>
       <br>
-        <p><%= @flat.description %></p>
-      </div>
+      <p><%= @flat.description %></p>
     </div>
+  </div>
   <% if @flat.user == current_user %>
-    <div class="reservation-form">
-      <div class="owner-form">
+  <div class="reservation-form">
+    <div class="owner-form">
       <p>Guests will see a form to confirm the reservation here</p>
       <div class="reservation-info pseudo">
         <%= simple_form_for [@flat, @booking] do |f| %>
@@ -59,22 +59,31 @@
         <%= f.submit "Make reservation", class: "btn btn-flat" %>
         <% end %>
       </div>
-      </div>
     </div>
+  </div>
   <% else %>
-    <div class="reservation-form">
-      <div class="reservation-info">
-        <%= simple_form_for [@flat, @booking] do |f| %>
-        <div class="box-show">
-          <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-          <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-        </div>
-        <p>Price per night: <%= @flat.price_per_night %></p>
-        <%= f.submit "Make reservation", class: "btn btn-flat" %>
-        <% end %>
+  <div class="reservation-form">
+    <div class="reservation-info">
+      <%= simple_form_for [@flat, @booking] do |f| %>
+      <div class="box-show">
+        <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
       </div>
+      <p>Price per night: <%= @flat.price_per_night %></p>
+      <%= f.submit "Make reservation", class: "btn btn-flat" %>
+      <% end %>
     </div>
+  </div>
   <% end %>
+  <div class= "header-shit">
+    <h1>Reviews!</h1>
+    <h3>See what other guests liked!</h3>
+    <% @flat.bookings.each do |booking|%>
+    <% booking.reviews.each do |review| %>
+    <p><%= review.content %></p>
+    <% end %>
+    <% end %>
+  </div>
 </div>
 <!--
 <div class="row">
