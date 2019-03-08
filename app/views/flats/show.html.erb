@@ -1,31 +1,37 @@
 <div class="gallery">
   <% if @flat.images[0] %>
-  <figure class="gallery__item--main">
-    <img src="<%= cl_image_path @flat.images[0].photo%>" class="gallery__img" alt="Image 1">
-    <%= link_to 'flat_images', flat_images_path(@flat.id), class: "placeholder-link" %>
-  </figure>
+    <div class="gallery__item--main">
+      <img src="<%= cl_image_path @flat.images[0].photo%>" class="gallery__img" alt="Image 1">
   <% else %>
-  <div class="placeholder gallery__item--main">
-    <p>+</p>
+    <% if owner? %>
+      <div class="placeholder gallery__item--main">
+        <p>+</p>
     <%= link_to 'flat_images', flat_images_path(@flat.id), class: "placeholder-link" %>
-  </div>
+      </div>
+    <% end %>
   <% end %>
+  </div>
   <% counter = 1 %>
   <% 4.times do %>
-  <% if @flat.images[counter]%>
-  <figure class="gallery__item--small">
-    <img src="<%= cl_image_path @flat.images[counter].photo%>" class="gallery__img" alt="Image 1">
-    <%= link_to 'flat_images', flat_images_path(@flat.id), class: "placeholder-link" %>
-  </figure>
-  <% else %>
-  <div class="placeholder gallery__item--small">
-    <p>+</p>
-    <%= link_to 'flat_images', flat_images_path(@flat.id), class: "placeholder-link" %>
-  </div>
-  <% end %>
-  <% counter += 1 %>
+      <% if @flat.images[counter]%>
+      <div class="gallery__item--small">
+        <img src="<%= cl_image_path @flat.images[counter].photo%>" class="gallery__img" alt="Image 1">
+      </div>
+        <% else %>
+        <div class="placeholder gallery__item--small">
+        <% if owner? %>
+      <%= link_to 'flat_images', flat_images_path(@flat.id), class: "placeholder-link" %>
+          <p>+</p>
+          <% end %>
+          </div>
+        <% end %>
+    <% counter += 1 %>
   <% end %>
 </div>
+</div>
+
+
+
 <div class="big-box-flat">
   <div class="flat-show">
     <div class="flat-info">
@@ -41,8 +47,8 @@
         <h1>Description:</h1>
         <h3>What the owner says about this property</h3>
       </div>
-      <br>
-      <p><%= @flat.description %></p>
+        <p><%= @flat.description %></p>
+      </div>
     </div>
   </div>
   <% if @flat.user == current_user %>

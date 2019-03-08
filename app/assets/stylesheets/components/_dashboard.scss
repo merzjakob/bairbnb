@@ -1,9 +1,9 @@
 .booking-card {
   display: flex;
   align-items: center;
-  padding: 10px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
-  text-align: top;
+  height: 150px;
+  margin: 10px 0px;
 }
 
 .wrapper h2 {
@@ -21,11 +21,14 @@
   border-bottom: none;
 }
 .booking-body {
-  flex-grow: 1;
-  padding-left: 40px;
+  padding-left: 20px;
   color: rgba(0,0,0,0.4);
   font-size: 15px;
   color: rgba(0,0,0,0.7);
+  overflow-y: scroll;
+  height: 100px;
+  overflow: auto;
+  flex: 60%;
 }
 .booking-name {
   // padding-left: 10px;
@@ -33,7 +36,7 @@
 }
 .booking-card h3{
   font-size: 18px;
-  margin: 0px 0px;
+  margin: 0px 5px;
 }
 .booking-card p {
   font-size: 15px;
@@ -48,11 +51,11 @@
 }
 
 .booking-status {
-  display: block;
-  min-width: 150px;
+  display: flex;
+  min-width: 20%;
   justify-content: space-between;
   i, p {
-    margin: 0px 20px;
+    margin: 0px 10px;
   }
   i {
     font-size:18px;
