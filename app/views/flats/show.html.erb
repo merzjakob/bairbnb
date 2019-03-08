@@ -39,7 +39,7 @@
       </div>
       <div class="number-guest-show-page">
         <i class="fas fa-female"> <h2><%= @flat.number_of_guests%></h2></i>
-        <i class="fas fa-dollar-sign"> <h2><%= @flat.price_per_night %></h2></i>
+        <i class="fas fa-dollar-sign"> <h2 id="price_per_night"><%= @flat.price_per_night %></h2></i>
       </div>
       <div class="header">
         <h1>Description:</h1>
@@ -67,7 +67,8 @@
           <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
           <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
         </div>
-        <p>Price per night: <%= @flat.price_per_night %></p>
+        <br>
+        <p id="total_price"></p>
         <%= f.submit "Make reservation", class: "btn btn-flat" %>
         <% end %>
       </div>
@@ -81,19 +82,10 @@
         <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
         <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
       </div>
-      <p>Price per night: <%= @flat.price_per_night %></p>
+      <p id="total_price"></p>
       <%= f.submit "Make reservation", class: "btn btn-flat" %>
       <% end %>
     </div>
   </div>
   <% end %>
 </div>
-
-<!--
-<div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-6">
-    <div class="flat-image">
-      <img src="https://images.unsplash.com/photo-1464082354059-27db6ce50048?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"></img>
-    </div>
-  </div>
-</div> -->

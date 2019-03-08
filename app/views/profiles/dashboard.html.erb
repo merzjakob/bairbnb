@@ -15,7 +15,9 @@
     </div>
     <div class="booking-status">
     <div>
+      <% if booking.status == "Approved" %>
       <%= link_to "Review", new_booking_review_path(booking), class: "btn btn-primary btn-xs "%>
+      <% end %>
     </div>
       <% if booking.status == "Approved" %>
       <h3 id="approved"><%=booking.status%></h3>
