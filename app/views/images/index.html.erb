@@ -1,20 +1,50 @@
 
 <div class="container">
-  <h1> Add pictures for <%= @flat.title %></h1>
+  <div class="flex">
+    <div class="header">
+      <h1>Add pictures for <%= @flat.title %></h1>
+      <h3>Show guests what they can expect when booking your lovely flat</h3>
+    </div>
+    <div>
+    <%= link_to 'Create flat', dashboard_path, class: 'btn btn-flat' %>
+    </div>
+  </div>
+
 <%= simple_form_for [@flat, @image] do |f|  %>
     <%= f.input :photo  %>
     <%= f.input :photo_cache, as: :hidden %>
     <%= f.submit 'Add photo'%>
 <% end %>
 <br>
-  <%= link_to 'Create flat', dashboard_path, class: 'btn btn-primary' %>
+
 </div>
 <div class="container">
-<h2>Your pictures:</h2>
-</div>
-<div class="container">
-  <% @images.each do |i| %>
-    <img src="<%= i.photo %>" alt="" height="250" width="250">
-    <%= link_to 'Delete', image_path(i), method: "delete", class: 'btn btn-primary'%>
-  <% end %>
+  <div class="header">
+          <h1>Preview</h1>
+          <h3>See how your pictures will look like for visitors</h3>
+        </div>
+  <div class="gallery">
+    <% if @images[0] %>
+      <figure class="gallery__item--main">
+        <img src="<%= cl_image_path @flat.images[0].photo%>" class="gallery__img" alt="Image 1">
+      </figure>
+    <% else %>
+      <div class="placeholder gallery__item--main">
+        <p>+</p>
+      </div>
+    <% end %>
+    <% counter = 1 %>
+    <% 4.times do %>
+      <% if @images[counter]%>
+        <figure class="gallery__item--small">
+          <img src="<%= cl_image_path @flat.images[counter].photo%>" class="gallery__img" alt="Image 1">
+        </figure>
+      <% else %>
+        <div class="placeholder gallery__item--small">
+          <p>+</p>
+        </div>
+      <% end %>
+      <% counter += 1 %>
+    <% end %>
+  </div>
 </div>

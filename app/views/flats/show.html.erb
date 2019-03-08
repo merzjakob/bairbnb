@@ -2,10 +2,12 @@
   <% if @flat.images[0] %>
     <figure class="gallery__item--main">
       <img src="<%= cl_image_path @flat.images[0].photo%>" class="gallery__img" alt="Image 1">
+    <%= link_to 'flat_images', flat_images_path(@flat.id), class: "placeholder-link" %>
     </figure>
   <% else %>
     <div class="placeholder gallery__item--main">
       <p>+</p>
+  <%= link_to 'flat_images', flat_images_path(@flat.id), class: "placeholder-link" %>
     </div>
   <% end %>
   <% counter = 1 %>
@@ -13,10 +15,12 @@
     <% if @flat.images[counter]%>
       <figure class="gallery__item--small">
         <img src="<%= cl_image_path @flat.images[counter].photo%>" class="gallery__img" alt="Image 1">
+      <%= link_to 'flat_images', flat_images_path(@flat.id), class: "placeholder-link" %>
       </figure>
     <% else %>
       <div class="placeholder gallery__item--small">
         <p>+</p>
+        <%= link_to 'flat_images', flat_images_path(@flat.id), class: "placeholder-link" %>
       </div>
     <% end %>
     <% counter += 1 %>
