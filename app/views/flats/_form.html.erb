@@ -1,11 +1,13 @@
-<div class="container">
-  <%= simple_form_for [@flat] do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :number_of_guests %>
-    <%= f.input :price_per_night %>
-    <%= f.input :city %>
-    <%= f.input :address %>
-    <%= f.submit "Go to next step", class: "btn btn-flat" %>
-  <% end %>
+   <div class="col-xs-12 col-sm-5 col-sm-offset-3">
+      <%= simple_form_for [@flat] do |f| %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <div class="box">
+        <%= f.input :number_of_guests%>
+        <%= f.input :price_per_night %>
+        </div>
+        <%= f.input :city %>
+        <%= f.input :address %>
+        <%= f.submit "Next step", class: "btn btn-flat center" %>
+      <% end %>
 </div>
