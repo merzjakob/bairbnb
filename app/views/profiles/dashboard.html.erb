@@ -12,6 +12,9 @@
     <div class="booking-body">
       <p><%=booking.flat.description %></p>
     </div>
+    <div class="review-flat">
+      <%= link_to "add review", new_booking_review_path(booking) %>
+    </div>
     <div class="booking-status">
       <% if booking.status == "Approved" %>
       <h3 id="approved"><%=booking.status%></h3>
