@@ -30,8 +30,6 @@
 </div>
 </div>
 
-
-
 <div class="big-box-flat">
   <div class="flat-show">
     <div class="flat-info">
@@ -48,10 +46,18 @@
         <h3>What the owner says about this property</h3>
       </div>
         <p><%= @flat.description %></p>
-      </div>
-    </div>
+      <div class= "header">
+        <h1>Reviews!</h1>
+        <h3>See what other guests say about this flat</h3>
+        <% @flat.bookings.each do |booking|%>
+        <% booking.reviews.each do |review| %>
+        <p><%= review.content %></p>
+        <% end %>
+        <% end %>
   </div>
-  <% if @flat.user == current_user %>
+      </div>
+  </div>
+    <% if @flat.user == current_user %>
   <div class="reservation-form">
     <div class="owner-form">
       <p>Guests will see a form to confirm the reservation here</p>
@@ -81,16 +87,8 @@
     </div>
   </div>
   <% end %>
-  <div class= "header-shit">
-    <h1>Reviews!</h1>
-    <h3>See what other guests liked!</h3>
-    <% @flat.bookings.each do |booking|%>
-    <% booking.reviews.each do |review| %>
-    <p><%= review.content %></p>
-    <% end %>
-    <% end %>
-  </div>
 </div>
+
 <!--
 <div class="row">
   <div class="col-xs-12 col-sm-6 col-md-6">
